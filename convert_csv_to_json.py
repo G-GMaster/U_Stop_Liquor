@@ -2,8 +2,8 @@ import csv
 import json
 
 # Read CSV file
-csv_file = 'd:\\VS_Code2\\U_Stop_L\\U_Stop_L\\Inventory.csv'
-json_file = 'd:\\VS_Code2\\U_Stop_L\\U_Stop_L\\assets\\data\\inventory.json'
+csv_file = 'd:\\VS_Code2\\U_Stop_Liquor\\U_Stop_Liquor\\Inventory.csv'
+json_file = 'd:\\VS_Code2\\U_Stop_Liquor\\U_Stop_Liquor\\assets\\data\\inventory.json'
 
 products = []
 product_id = 1
