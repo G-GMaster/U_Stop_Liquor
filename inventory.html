@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory - U Stop Liquor</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <nav>
+      <div>
+        <div class="logo">U STOP LIQUOR</div>
+        <div class="logo-tagline">YOUR ONE-STOP SHOP</div>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="inventory.html" class="active">Inventory</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="inventory-page">
+    <div class="page-header">
+      <h1>Our Complete Inventory</h1>
+      <p>Browse our full selection of premium beverages and spirits</p>
+    </div>
+
+    <!-- FILTERS & SEARCH SECTION -->
+    <section class="filters-container">
+      <div class="filters-grid">
+        <!-- SEARCH -->
+        <div class="filter-group">
+          <label for="search-input">Search Products</label>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search by name, type, or SKU..." 
+            onkeyup="searchProducts()"
+          >
+        </div>
+
+        <!-- CATEGORY FILTER -->
+        <div class="filter-group">
+          <label for="category-filter">Filter by Category</label>
+          <select id="category-filter" onchange="filterProducts()">
+            <option value="">All Categories</option>
+          </select>
+        </div>
+
+        <!-- SIZE FILTER -->
+        <div class="filter-group">
+          <label for="size-filter">Filter by Size</label>
+          <select id="size-filter" onchange="filterProducts()">
+            <option value="">All Sizes</option>
+          </select>
+        </div>
+
+        <!-- PRICE FILTER -->
+        <div class="filter-group">
+          <label for="price-min">Min Price</label>
+          <input 
+            type="number" 
+            id="price-min" 
+            placeholder="Min price..." 
+            onchange="filterProducts()"
+          >
+        </div>
+
+        <div class="filter-group">
+          <label for="price-max">Max Price</label>
+          <input 
+            type="number" 
+            id="price-max" 
+            placeholder="Max price..." 
+            onchange="filterProducts()"
+          >
+        </div>
+
+        <!-- SORT -->
+        <div class="filter-group">
+          <label for="sort-select">Sort By</label>
+          <select id="sort-select" onchange="sortProducts()">
+            <option value="name-asc">Name (A-Z)</option>
+            <option value="name-desc">Name (Z-A)</option>
+            <option value="price-asc">Price (Low to High)</option>
+            <option value="price-desc">Price (High to Low)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- FILTER BUTTONS -->
+      <div class="filter-buttons">
+        <button class="apply-btn" onclick="filterProducts()">Apply Filters</button>
+        <button class="reset-btn" onclick="resetFilters()">Reset All</button>
+      </div>
+    </section>
+
+    <!-- PRODUCTS GRID -->
+    <div class="products-container" id="products-container">
+      <!-- Products will be loaded here by JavaScript -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2024 U Stop Liquor. All rights reserved.</p>
+    <p>Visit us today for the best selection of premium beverages!</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
