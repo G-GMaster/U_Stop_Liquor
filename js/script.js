@@ -48,7 +48,10 @@ function displayProducts(products) {
   container.innerHTML = products.map(product => `
     <div class="product-card">
       <div class="product-image">
-        <span>🍾</span>
+        <img src="assets/images/${product.image}" 
+             alt="${product.name}" 
+             onerror="this.replaceWith(document.createTextNode('🍾'))"
+             style="width: 100%; height: 100%; object-fit: contain;">
       </div>
       <div class="product-info">
         <div class="product-category">${product.category}</div>
