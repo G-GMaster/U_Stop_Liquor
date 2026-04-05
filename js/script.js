@@ -45,12 +45,21 @@ function displayProducts(products) {
     return;
   }
   
-  container.innerHTML = products.map(product => `
+  container.innerHTML = products.map(product => {
+    // Try multiple image formats (jpg, png, svg)
+    const imageName = product.image.replace('.jpg', '');
+    const imageFormats = [
+      `assets/images/${imageName}.svg`,
+      `assets/images/${imageName}.jpg`,
+      `assets/images/${imageName}.png`
+    ];
+    
+    return `
     <div class="product-card">
       <div class="product-image">
-        <img src="assets/images/${product.image}" 
-             alt="${product.name}" 
-             onerror="this.replaceWith(document.createTextNode('🍾'))"
+        <img src="${imageFormats[0]}" 
+             alt="${product.name}"
+             onerror="let src = this.src; let formats = ['${imageFormats[0]}', '${imageFormats[1]}', '${imageFormats[2]}']; let idx = formats.indexOf(src); if(idx < formats.length - 1) { this.src = formats[idx + 1]; } else { this.replaceWith(document.createTextNode('🍾')); }"
              style="width: 100%; height: 100%; object-fit: contain;">
       </div>
       <div class="product-info">
@@ -75,7 +84,8 @@ function displayProducts(products) {
         <button class="add-to-cart-btn" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 // Search function
